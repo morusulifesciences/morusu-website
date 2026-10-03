@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* ==========================================
+     V1 Theme (Forest Greens) - Commented out
+  =============================================
+  --color-ivory: #F7F5F0;
+  --color-ivory-dark: #EBE7DD;
+  --color-forest-900: #133621;
+  --color-forest-800: #1C4D30;
+  --color-forest-700: #266B44;
+  --color-sage: #7B8B7A;
+  --color-sage-light: #B5C4B4;
+  --color-gold: #B89965;
+  --color-gold-light: #D4B98C;
+  --color-plum: #8A2E50;
+  */
+
+  /* ==========================================
+     V2 Theme (Burgundy / Saffron)
+  ============================================= */
+  /* Backgrounds */
+  --color-ivory: #FAF5E9;       /* Warm Ivory */
+  --color-ivory-dark: #EDE0C8;  /* Sand Beige */
+  
+  /* Primary Dark Texts & Backgrounds (Mapped to 'forest' so classes still work) */
+  --color-forest-900: #2B211B;  /* Espresso Brown (Dark Text) */
+  --color-forest-800: #6B1835;  /* Deep Burgundy (Primary) */
+  --color-forest-700: #B85C38;  /* Terracotta (Accent) */
+  
+  /* Highlights & Accents (Mapped to 'sage' and 'gold') */
+  --color-sage: #B85C38;        /* Terracotta */
+  --color-sage-light: #FFFDF8;  /* Soft White */
+  --color-gold: #D49A24;        /* Saffron / Ayurvedic Gold */
+  --color-gold-light: #D8A49B;  /* Rose Beige (Light Accent) */
+  --color-plum: #6B1835;        /* Deep Burgundy */
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+:root {
+  --background: var(--color-ivory);
+  --foreground: var(--color-forest-900);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-flip {
+    animation: flipIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: perspective(600px) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(600px) rotateX(0deg);
+    opacity: 1;
+  }
+}
