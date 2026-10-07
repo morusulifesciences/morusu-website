@@ -1,33 +1,34 @@
 import Link from "next/link";
 import { Star, ArrowRight } from "lucide-react";
-import { getRecentReviews } from "@/data/reviews";
+import { getGoogleReviews, getGooglePlaceDetails } from "@/data/reviews";
 
-export function ReviewsPreview() {
-  const reviews = getRecentReviews(3);
+export async function ReviewsPreview() {
+  const reviews = await getGoogleReviews(3);
+  const placeDetails = await getGooglePlaceDetails();
 
   return (
-    <section className="py-24 bg-ivory-dark/30">
+    <section className="py-24 bg-cream-dark/30">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-forest-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-primary-dark mb-6">
               What Customers Say
             </h2>
-            <div className="flex items-center gap-4 text-forest-900/80">
+            <div className="flex items-center gap-4 text-text-muted">
               <div className="flex text-gold">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
-              <span className="font-medium">4.8 / 5</span>
-              <span className="text-sm border-l border-forest-900/20 pl-4">Sample rating data</span>
+              <span className="font-medium">{placeDetails.rating} / 5</span>
+              <span className="text-sm border-l border-soft pl-4">{placeDetails.total}</span>
             </div>
           </div>
           <Link 
             href="/reviews"
-            className="inline-flex items-center gap-2 text-forest-900 font-medium hover:text-forest-700 transition-colors group whitespace-nowrap"
+            className="inline-flex items-center gap-2 text-primary-dark font-medium hover:text-primary transition-colors group whitespace-nowrap"
           >
-            <span className="border-b border-forest-900 group-hover:border-forest-700 pb-0.5 transition-colors">
+            <span className="border-b border-primary group-hover:border-primary pb-0.5 transition-colors">
               View All Reviews
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -45,17 +46,17 @@ export function ReviewsPreview() {
             {[...reviews, ...reviews].map((review, idx) => (
               <div 
                 key={`${review.id}-${idx}`} 
-                className="w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 bg-white p-8 rounded-2xl border border-forest-900/5 shadow-sm flex flex-col h-full"
+                className="w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 bg-white p-8 rounded-2xl border border-soft shadow-soft flex flex-col h-full"
               >
                 <div className="flex text-gold mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`w-4 h-4 ${i < review.rating ? 'fill-current' : 'text-forest-900/10'}`} />
+                    <Star key={i} className={`w-4 h-4 ${i < review.rating ? 'fill-current' : 'text-primary-dark/10'}`} />
                   ))}
                 </div>
-                <p className="text-forest-900/80 mb-6 flex-1 italic">&quot;{review.content}&quot;</p>
-                <div className="mt-auto border-t border-forest-900/5 pt-4">
-                  <p className="font-medium text-forest-900">{review.authorName}</p>
-                  <p className="text-xs text-forest-700 mt-1">{review.productName}</p>
+                <p className="text-text-muted mb-6 flex-1 italic">&quot;{review.content}&quot;</p>
+                <div className="mt-auto border-t border-soft pt-4">
+                  <p className="font-medium text-primary-dark">{review.authorName}</p>
+                  <p className="text-xs text-primary mt-1">{review.productName}</p>
                 </div>
               </div>
             ))}

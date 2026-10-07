@@ -37,9 +37,9 @@ export function ProductCarousel() {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-ivory">
+    <section className="py-12 md:py-20 bg-cream">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px]">
-        <div className="bg-forest-900 text-ivory rounded-[2rem] md:rounded-[3rem] py-12 md:py-16 shadow-2xl border border-forest-900/10">
+        <div className="bg-primary text-cream rounded-[2rem] md:rounded-[3rem] py-12 md:py-16 shadow-elevated border border-soft">
           
           <div className="px-6 md:px-12 lg:px-16 flex flex-col md:flex-row justify-between md:items-end mb-8 md:mb-12 gap-6">
             <div>
@@ -55,8 +55,8 @@ export function ProductCarousel() {
                 className={cn(
                   "w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
                   canScrollLeft 
-                    ? "border-ivory/30 text-ivory hover:bg-ivory/10 hover:border-ivory/50" 
-                    : "border-ivory/10 text-ivory/30 cursor-not-allowed"
+                    ? "border-cream/30 text-cream hover:bg-cream/10 hover:border-cream/50" 
+                    : "border-cream/10 text-cream/30 cursor-not-allowed"
                 )}
                 aria-label="Previous product"
               >
@@ -68,8 +68,8 @@ export function ProductCarousel() {
                 className={cn(
                   "w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
                   canScrollRight 
-                    ? "border-ivory/30 text-ivory hover:bg-ivory/10 hover:border-ivory/50" 
-                    : "border-ivory/10 text-ivory/30 cursor-not-allowed"
+                    ? "border-cream/30 text-cream hover:bg-cream/10 hover:border-cream/50" 
+                    : "border-cream/10 text-cream/30 cursor-not-allowed"
                 )}
                 aria-label="Next product"
               >
@@ -92,14 +92,14 @@ export function ProductCarousel() {
                 >
                   <Link 
                     href={`/products/${product.slug}`}
-                    className="block h-[40vh] min-h-[250px] max-h-[350px] bg-ivory/10 rounded-2xl mb-5 overflow-hidden relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="block h-[40vh] min-h-[250px] max-h-[350px] bg-cream/10 rounded-2xl mb-5 overflow-hidden relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
-                    <div className="absolute inset-0 flex items-center justify-center text-ivory/30 p-6">
+                    <div className="absolute inset-0 flex items-center justify-center text-cream/30 p-6">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-full object-contain drop-shadow-lg" 
+                        className="w-full h-full object-contain drop-shadow-elevated" 
                       />
                     </div>
                   </Link>
@@ -113,15 +113,15 @@ export function ProductCarousel() {
                         <Link href={`/products/${product.slug}`}>{product.name}</Link>
                       </h3>
                       {product.sellingPrice && (
-                        <span className="font-medium text-ivory shrink-0 mt-1">{product.sellingPrice}</span>
+                        <span className="font-medium text-cream shrink-0 mt-1">{product.sellingPrice}</span>
                       )}
                     </div>
-                    <p className="text-ivory/70 text-sm mb-5 line-clamp-2">
+                    <p className="text-cream/70 text-sm mb-5 line-clamp-2">
                       {product.shortDescription}
                     </p>
                     <Link 
                       href={`/products/${product.slug}`}
-                      className="mt-auto inline-flex w-fit px-6 py-2.5 rounded-full border border-ivory/30 hover:bg-ivory hover:text-forest-900 transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      className="mt-auto inline-flex w-fit px-6 py-2.5 rounded-full border border-cream/30 hover:bg-cream hover:text-primary-dark transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                     >
                       Shop Now
                     </Link>

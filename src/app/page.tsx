@@ -8,6 +8,9 @@ import { WhyMorusu } from "@/components/home/WhyMorusu";
 import { ReviewsPreview } from "@/components/home/ReviewsPreview";
 import { CertificationsPreview } from "@/components/home/CertificationsPreview";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { FounderCredibility } from "@/components/home/FounderCredibility";
+import { AyurvedaCredibility } from "@/components/home/AyurvedaCredibility";
+import { AyushTrust } from "@/components/home/AyushTrust";
 
 export default function Home() {
   return (
@@ -15,18 +18,22 @@ export default function Home() {
       <div className="h-[100dvh]">
         <Hero />
       </div>
+      <FounderCredibility />
+      <AyurvedaCredibility />
       <AyurvedaIntro />
-      {/* <div className="bg-ivory border-t border-forest-900/5">
+      {/* <div className="bg-cream border-t border-soft">
         <IngredientsCarousel />
       </div> */}
-      <div className="bg-forest-900">
+      <div className="bg-primary">
         <WhyMorusu />
       </div>
       <ProductCarousel />
-      <div className="bg-sage-light/10 border-t border-forest-900/5">
+      <div className="bg-sage-light border-t border-soft">
         <Dia365Announcement />
       </div>
       <AyurvedaComparison />
+      
+      <AyushTrust />
       
       <ReviewsPreview />
       <CertificationsPreview />

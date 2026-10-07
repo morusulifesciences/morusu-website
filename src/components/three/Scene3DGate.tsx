@@ -41,9 +41,9 @@ export function Scene3DGate() {
         }`}
         aria-hidden={modelLoaded ? "true" : "false"}
       >
-        <div className="w-2/3 h-2/3 bg-forest-900/10 rounded-[40px] flex items-center justify-center border-2 border-dashed border-forest-900/20">
+        <div className="w-2/3 h-2/3 bg-primary/10 rounded-[40px] flex items-center justify-center border-2 border-dashed border-soft">
           {/* We'd use next/image with priority here normally */}
-          <span className="text-forest-900/50 font-medium">Static Image LCP</span>
+          <span className="text-text-muted font-medium">Static Image LCP</span>
         </div>
       </div>
 
