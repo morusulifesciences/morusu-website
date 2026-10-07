@@ -46,13 +46,13 @@ export function Hero() {
             className="w-full h-full object-cover"
           />
           {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-forest-900/20 sm:bg-forest-900/30 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-primary/20 sm:bg-primary/30 backdrop-blur-[1px]" />
         </div>
       ))}
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center flex flex-col items-center mt-20">
-        {/* <span className="text-gold font-semibold uppercase tracking-widest mb-4 sm:mb-6 animate-fade-in block drop-shadow-md">
+        {/* <span className="text-gold font-semibold uppercase tracking-widest mb-4 sm:mb-6 animate-fade-in block drop-shadow-card">
           {HERO_SLIDES[currentSlide].subtitle}
         </span> */}
         
@@ -62,7 +62,7 @@ export function Hero() {
             <h1
               key={idx}
               className={cn(
-                "absolute top-1/2 -translate-y-1/2 w-full text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] drop-shadow-xl transition-all duration-1000 ease-in-out",
+                "absolute top-1/2 -translate-y-1/2 w-full text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] drop-shadow-elevated transition-all duration-1000 ease-in-out",
                 idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
               )}
             >
@@ -71,14 +71,14 @@ export function Hero() {
           ))}
         </div>
         
-        <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium drop-shadow-md">
+        <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium drop-shadow-card">
           Discover our thoughtfully crafted collection of herbal hair care, skin care, and nutrition products.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in">
           <Link 
             href="/products" 
-            className="w-full sm:w-auto bg-white text-forest-900 px-8 py-4 rounded-full font-medium hover:bg-ivory transition-colors flex items-center justify-center gap-2 group shadow-lg"
+            className="w-full sm:w-auto bg-white text-primary-dark px-8 py-4 rounded-full font-medium hover:bg-cream transition-colors flex items-center justify-center gap-2 group shadow-elevated"
           >
             Explore Collection
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -44,14 +44,14 @@ export function IngredientsCarousel() {
   };
 
   return (
-    <section className="py-20 bg-ivory overflow-hidden border-t border-forest-900/5">
+    <section className="py-20 bg-cream overflow-hidden border-t border-soft">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif text-forest-900 mb-2">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary-dark mb-2">
               Key Ingredients We Use
             </h2>
-            <p className="text-forest-900/70 max-w-xl">
+            <p className="text-text-muted max-w-xl">
               Discover the potent botanicals and herbs that power our Ayurvedic formulations.
             </p>
           </div>
@@ -60,10 +60,10 @@ export function IngredientsCarousel() {
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               className={cn(
-                "w-10 h-10 rounded-full border border-forest-900/20 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-900",
+                "w-10 h-10 rounded-full border border-soft flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                 canScrollLeft 
-                  ? "text-forest-900 hover:bg-forest-900/5" 
-                  : "text-forest-900/30 cursor-not-allowed border-forest-900/10"
+                  ? "text-primary-dark hover:bg-primary/5" 
+                  : "text-primary-dark/30 cursor-not-allowed border-soft"
               )}
               aria-label="Previous ingredient"
             >
@@ -73,10 +73,10 @@ export function IngredientsCarousel() {
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               className={cn(
-                "w-10 h-10 rounded-full border border-forest-900/20 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-900",
+                "w-10 h-10 rounded-full border border-soft flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                 canScrollRight 
-                  ? "text-forest-900 hover:bg-forest-900/5" 
-                  : "text-forest-900/30 cursor-not-allowed border-forest-900/10"
+                  ? "text-primary-dark hover:bg-primary/5" 
+                  : "text-primary-dark/30 cursor-not-allowed border-soft"
               )}
               aria-label="Next ingredient"
             >
@@ -98,7 +98,7 @@ export function IngredientsCarousel() {
               key={idx} 
               className="snap-center sm:snap-start shrink-0 flex flex-col items-center group w-[140px] md:w-[160px]"
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-sage-light/20 mb-4 overflow-hidden relative shadow-sm border border-forest-900/5 group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-sage-light mb-4 overflow-hidden relative shadow-soft border border-soft group-hover:shadow-card group-hover:scale-105 transition-all duration-300">
                 {ingredient.image ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img 
@@ -107,13 +107,13 @@ export function IngredientsCarousel() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-forest-900/30 text-xs">
+                  <div className="absolute inset-0 flex items-center justify-center text-primary-dark/30 text-xs">
                     Image Pending
                   </div>
                 )}
               </div>
-              <h3 className="font-serif text-lg text-forest-900 text-center">{ingredient.name}</h3>
-              <span className="text-xs text-forest-700 uppercase tracking-wider text-center mt-1">
+              <h3 className="font-serif text-lg text-primary-dark text-center">{ingredient.name}</h3>
+              <span className="text-xs text-primary uppercase tracking-wider text-center mt-1">
                 {ingredient.role}
               </span>
             </div>

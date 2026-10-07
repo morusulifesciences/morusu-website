@@ -38,7 +38,7 @@ export function WhyMorusu() {
     <section className="bg-white pt-10 md:pt-18">
       <div className="container mx-auto px-2 md:px-4 lg:px-4 max-w-7xl mb-4 md:mb-4">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-forest-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary-dark mb-6">
             Why Morusu
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto rounded-full" />
@@ -51,13 +51,13 @@ export function WhyMorusu() {
           {reasons.map((reason, idx) => (
             <div 
               key={idx}
-              className="p-8 rounded-2xl bg-ivory-dark/30 border border-forest-900/5 hover:border-forest-900/10 transition-colors"
+              className="p-8 rounded-2xl bg-cream-dark/30 border border-soft hover:border-soft transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-forest-900/5 flex items-center justify-center text-forest-700 mb-6">
+              <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-6">
                 {reason.icon}
               </div>
-              <h3 className="font-serif text-xl text-forest-900 mb-2">{reason.title}</h3>
-              <p className="text-forest-900/70 text-sm leading-relaxed">{reason.description}</p>
+              <h3 className="font-serif text-xl text-primary-dark mb-2">{reason.title}</h3>
+              <p className="text-text-muted text-sm leading-relaxed">{reason.description}</p>
             </div>
           ))}
         </div>

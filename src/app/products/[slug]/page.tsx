@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   };
 
   return (
-    <div className="pt-32 lg:pt-40 pb-24 min-h-screen bg-ivory">
+    <div className="pt-32 lg:pt-40 pb-24 min-h-screen bg-cream">
       <JsonLd data={productSchema} />
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1200px]">
         <Breadcrumbs items={[{ name: "Products", url: "/products" }, { name: product.name }]} />
@@ -53,14 +53,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           
           {/* Left: Product Image (Sticky) */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <div className="relative aspect-[4/5] bg-white rounded-3xl overflow-hidden flex items-center justify-center p-12 border border-forest-900/5 shadow-sm">
+            <div className="relative aspect-[4/5] bg-white rounded-3xl overflow-hidden flex items-center justify-center p-12 border border-soft shadow-soft">
                {/* eslint-disable-next-line @next/next/no-img-element */}
                <img 
                  src={product.image} 
                  alt={product.name}
-                 className="w-auto h-full object-contain drop-shadow-xl" 
+                 className="w-auto h-full object-contain drop-shadow-elevated" 
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-forest-900/5 to-transparent pointer-events-none" />
+               <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
             </div>
           </div>
           
@@ -69,40 +69,68 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             
             {/* Header section */}
             <div className="mb-6">
-              <span className="text-forest-700 text-xs font-bold uppercase tracking-widest mb-3 block">
+              <span className="text-primary text-xs font-bold uppercase tracking-widest mb-3 block">
                 {product.category}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-forest-900 mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary-dark mb-4 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-xl text-forest-800 font-serif italic">
+              <p className="text-xl text-text font-serif italic">
                 {product.tagline}
               </p>
             </div>
             
             {/* Price section */}
             {product.sellingPrice && (
-              <div className="mb-8 flex items-baseline gap-4 py-4 border-y border-forest-900/10">
-                <span className="text-3xl md:text-4xl font-serif text-forest-900 font-semibold">{product.sellingPrice}</span>
+              <div className="mb-8 flex items-baseline gap-4 py-4 border-y border-soft">
+                <span className="text-3xl md:text-4xl font-serif text-primary-dark font-semibold">{product.sellingPrice}</span>
                 {product.mrp && product.mrp !== product.sellingPrice && (
-                  <span className="text-lg text-forest-900/50 line-through">MRP: {product.mrp}</span>
+                  <span className="text-lg text-text-muted line-through">MRP: {product.mrp}</span>
                 )}
-                <span className="ml-auto text-xs font-medium uppercase tracking-wider text-forest-700 bg-sage-light/20 px-3 py-1 rounded-full">
+                <span className="ml-auto text-xs font-medium uppercase tracking-wider text-primary bg-sage-light px-3 py-1 rounded-full">
                   In Stock
                 </span>
               </div>
             )}
             
+            {/* AYUSH Regulatory Block */}
+            {slug === 'dia-365-foot-care-cream' && (
+              <div className="mb-8 bg-sage-light border border-soft p-5 rounded-2xl">
+                <div className="flex items-center gap-2 text-primary-dark font-bold mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  AYUSH-Approved Product
+                </div>
+                <div className="grid grid-cols-2 gap-4 text-sm text-text-muted">
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-semibold opacity-70 mb-1">Product Name</span>
+                    DIA 365 CREAM
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-semibold opacity-70 mb-1">Product ID</span>
+                    T-2217/Ayur/0002/2024/P
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-semibold opacity-70 mb-1">AYUSH License</span>
+                    T-2217/Ayur
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-wider font-semibold opacity-70 mb-1">Approval Date</span>
+                    30/12/2024
+                  </div>
+                </div>
+              </div>
+            )}
+            
             {/* Short Description */}
-            <p className="text-lg text-forest-900/80 mb-8 leading-relaxed">
+            <p className="text-lg text-text-muted mb-8 leading-relaxed">
               {product.shortDescription}
             </p>
 
             {/* Pack Size Box */}
             {product.packSize && (
               <div className="mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-forest-900 block mb-3">Available Pack Size</span>
-                <div className="inline-flex items-center justify-center border-2 border-forest-900 text-forest-900 px-6 py-3 rounded-xl font-medium bg-white">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary-dark block mb-3">Available Pack Size</span>
+                <div className="inline-flex items-center justify-center border-2 border-primary text-primary-dark px-6 py-3 rounded-xl font-medium bg-white">
                   {product.packSize}
                 </div>
               </div>
@@ -114,7 +142,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 href={`https://wa.me/917893683052?text=${encodeURIComponent(`Hello, I would like to enquire about your product: ${product.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-xl font-medium hover:bg-[#1DA851] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366] shadow-xl shadow-[#25D366]/20 text-lg"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-xl font-medium hover:bg-[#1DA851] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366] shadow-elevated shadow-[#25D366]/20 text-lg"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,26 +157,26 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </div>
             
             {/* Details Accordion-style layout */}
-            <div className="flex flex-col border-t border-forest-900/10">
+            <div className="flex flex-col border-t border-soft">
               
               {product.fullDescription && (
-                <div className="py-6 border-b border-forest-900/10">
-                  <h3 className="text-lg font-serif text-forest-900 mb-3">Product Description</h3>
-                  <p className="text-forest-900/70 text-sm leading-relaxed">{product.fullDescription}</p>
+                <div className="py-6 border-b border-soft">
+                  <h3 className="text-lg font-serif text-primary-dark mb-3">Product Description</h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{product.fullDescription}</p>
                 </div>
               )}
               
               {product.howToUse && (
-                <div className="py-6 border-b border-forest-900/10">
-                  <h3 className="text-lg font-serif text-forest-900 mb-3">How to Use</h3>
-                  <p className="text-forest-900/70 text-sm leading-relaxed">{product.howToUse}</p>
+                <div className="py-6 border-b border-soft">
+                  <h3 className="text-lg font-serif text-primary-dark mb-3">How to Use</h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{product.howToUse}</p>
                 </div>
               )}
 
               {product.storageInstructions && (
-                <div className="py-6 border-b border-forest-900/10">
-                  <h3 className="text-lg font-serif text-forest-900 mb-3">Storage Instructions</h3>
-                  <p className="text-forest-900/70 text-sm leading-relaxed">{product.storageInstructions}</p>
+                <div className="py-6 border-b border-soft">
+                  <h3 className="text-lg font-serif text-primary-dark mb-3">Storage Instructions</h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{product.storageInstructions}</p>
                 </div>
               )}
 
@@ -158,29 +186,29 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
         {/* Bottom Section: Ingredients & Benefits */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-forest-900/5">
-            <h2 className="text-2xl font-serif text-forest-900 mb-8 flex items-center gap-3">
-              <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xl">✦</span>
+          <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-soft border border-soft">
+            <h2 className="text-2xl font-serif text-primary-dark mb-8 flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-gold-light/20 flex items-center justify-center text-gold text-xl">✦</span>
               Key Benefits
             </h2>
-            <ul className="space-y-5 text-forest-900/80">
+            <ul className="space-y-5 text-text-muted">
               {product.benefits.map((benefit, idx) => (
                 <li key={idx} className="flex items-start gap-4">
-                  <div className="w-2 h-2 rounded-full bg-forest-900 shrink-0 mt-2" />
+                  <div className="w-2 h-2 rounded-full bg-primary shrink-0 mt-2" />
                   <span className="leading-relaxed font-medium">{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
           
-          <div className="bg-sage-light/10 rounded-[2rem] p-8 md:p-10 shadow-sm border border-forest-900/5">
-            <h2 className="text-2xl font-serif text-forest-900 mb-8 flex items-center gap-3">
-              <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest-900 text-xl shadow-sm">🌿</span>
+          <div className="bg-sage-light rounded-[2rem] p-8 md:p-10 shadow-soft border border-soft">
+            <h2 className="text-2xl font-serif text-primary-dark mb-8 flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary-dark text-xl shadow-soft">🌿</span>
               Key Ingredients
             </h2>
             <div className="flex flex-wrap gap-3">
               {product.ingredients.map((ingredient, idx) => (
-                <span key={idx} className="bg-white border border-forest-900/10 text-forest-900 px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm">
+                <span key={idx} className="bg-white border border-soft text-primary-dark px-5 py-2.5 rounded-full text-sm font-semibold shadow-soft">
                   {ingredient}
                 </span>
               ))}

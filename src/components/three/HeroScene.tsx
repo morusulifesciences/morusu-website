@@ -99,7 +99,7 @@ export function HeroScene({ tier: initialTier, onLoaded }: HeroSceneProps) {
 
       {/* Accessible Pause/Play Control */}
       <button 
-        className="absolute bottom-4 right-4 z-30 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-forest-900 shadow-sm border border-forest-900/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-900"
+        className="absolute bottom-4 right-4 z-30 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-primary-dark shadow-soft border border-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         onClick={() => setIsPlaying(!isPlaying)}
         aria-label={isPlaying ? "Pause 3D rotation" : "Play 3D rotation"}
       >

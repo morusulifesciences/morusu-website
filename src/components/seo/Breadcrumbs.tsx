@@ -23,9 +23,9 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
     <>
       <JsonLd data={breadcrumbData} />
       <nav aria-label="Breadcrumb" className="mb-8 hidden sm:block">
-        <ol className="flex items-center space-x-2 text-sm text-forest-900/60">
+        <ol className="flex items-center space-x-2 text-sm text-text-muted">
           <li>
-            <Link href="/" className="hover:text-forest-900 transition-colors">
+            <Link href="/" className="hover:text-primary-dark transition-colors">
               Home
             </Link>
           </li>
@@ -33,11 +33,11 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             <li key={idx} className="flex items-center space-x-2">
               <ChevronRight className="w-4 h-4" />
               {item.url ? (
-                <Link href={item.url} className="hover:text-forest-900 transition-colors">
+                <Link href={item.url} className="hover:text-primary-dark transition-colors">
                   {item.name}
                 </Link>
               ) : (
-                <span className="text-forest-900">{item.name}</span>
+                <span className="text-primary-dark">{item.name}</span>
               )}
             </li>
           ))}

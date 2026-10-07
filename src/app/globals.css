@@ -1,47 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  /* ==========================================
-     V1 Theme (Forest Greens) - Commented out
-  =============================================
-  --color-ivory: #F7F5F0;
-  --color-ivory-dark: #EBE7DD;
-  --color-forest-900: #133621;
-  --color-forest-800: #1C4D30;
-  --color-forest-700: #266B44;
-  --color-sage: #7B8B7A;
-  --color-sage-light: #B5C4B4;
-  --color-gold: #B89965;
-  --color-gold-light: #D4B98C;
-  --color-plum: #8A2E50;
-  */
+  /* Brand */
+  --color-primary: #07583F;
+  --color-primary-dark: #0B3F32;
 
-  /* ==========================================
-     V2 Theme (Burgundy / Saffron)
-  ============================================= */
-  /* Backgrounds */
-  --color-ivory: #FAF5E9;       /* Warm Ivory */
-  --color-ivory-dark: #EDE0C8;  /* Sand Beige */
+  /* Botanical */
+  --color-sage: #8FAF76;
+  --color-sage-light: #DCE7C8;
+
+  /* Surfaces */
+  --color-cream: #F8F3E7;
+  --color-surface: #FFFDF7;
+
+  /* Accent */
+  --color-gold: #C49A3A;
+  --color-gold-light: #D8B866;
+
+  /* Earth */
+  --color-earth: #79583B;
   
-  /* Primary Dark Texts & Backgrounds (Mapped to 'forest' so classes still work) */
-  --color-forest-900: #2B211B;  /* Espresso Brown (Dark Text) */
-  --color-forest-800: #6B1835;  /* Deep Burgundy (Primary) */
-  --color-forest-700: #B85C38;  /* Terracotta (Accent) */
-  
-  /* Highlights & Accents (Mapped to 'sage' and 'gold') */
-  --color-sage: #B85C38;        /* Terracotta */
-  --color-sage-light: #FFFDF8;  /* Soft White */
-  --color-gold: #D49A24;        /* Saffron / Ayurvedic Gold */
-  --color-gold-light: #D8A49B;  /* Rose Beige (Light Accent) */
-  --color-plum: #6B1835;        /* Deep Burgundy */
-  
+  /* Text */
+  --color-text: #20352D;
+  --color-text-muted: #5F7068;
+
+  /* Borders */
+  --color-soft: #DCE7C8; /* Soft border mapping */
+
+  /* Shadows */
+  --shadow-soft: 0 8px 30px rgba(11, 63, 50, 0.08);
+  --shadow-card: 0 12px 40px rgba(11, 63, 50, 0.10);
+  --shadow-elevated: 0 20px 60px rgba(11, 63, 50, 0.14);
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
 }
 
 :root {
-  --background: var(--color-ivory);
-  --foreground: var(--color-forest-900);
+  --background: var(--color-cream);
+  --foreground: var(--color-text);
+  
+  /* Shadows */
+  --shadow-soft: 0 8px 30px rgba(11, 63, 50, 0.08);
+  --shadow-card: 0 12px 40px rgba(11, 63, 50, 0.10);
+  --shadow-elevated: 0 20px 60px rgba(11, 63, 50, 0.14);
 }
 
 html {

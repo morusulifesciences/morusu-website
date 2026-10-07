@@ -68,7 +68,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center z-50 relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 rounded-sm"
+            className="flex items-center z-50 relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/morusu-logo.png" alt="Morusu Life Sciences" className="h-10 md:h-12 w-auto" />
@@ -90,8 +90,8 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-sm font-medium transition-colors hover:text-forest-700 relative py-2",
-                        isActive ? "text-forest-900" : "text-forest-900/70"
+                        "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                        isActive ? "text-primary-dark" : "text-text-muted"
                       )}
                     >
                       {link.label}
@@ -103,18 +103,18 @@ export function Header() {
                 );
               })}
             </ul>
-            <Link
+            {/* <Link
               href="/products"
-              className="bg-forest-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-forest-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-forest-900"
+              className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
             >
               Explore Products
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden z-50 relative p-2 text-forest-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 rounded-md"
+            className="lg:hidden z-50 relative p-2 text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle menu"
           >
@@ -130,12 +130,12 @@ export function Header() {
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "fixed inset-0 bg-ivory z-[60] transition-transform duration-300 ease-in-out lg:hidden flex flex-col overflow-y-auto",
+          "fixed inset-0 bg-cream z-[60] transition-transform duration-300 ease-in-out lg:hidden flex flex-col overflow-y-auto",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         {/* Drawer Header */}
-        <div className="flex items-center justify-between p-6 mb-4 border-b border-forest-900/5">
+        <div className="flex items-center justify-between p-6 mb-4 border-b border-soft">
           <div className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/morusu-logo.png" alt="Morusu Life Sciences" className="h-10 w-auto" />
@@ -143,7 +143,7 @@ export function Header() {
           </div>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 text-forest-900 bg-forest-900/5 rounded-full hover:bg-forest-900/10 transition-colors"
+            className="p-2 text-primary-dark bg-primary/5 rounded-full hover:bg-primary/10 transition-colors"
             aria-label="Close menu"
           >
             <X className="w-6 h-6" />
@@ -165,7 +165,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "text-2xl font-serif block transition-colors py-2",
-                      isActive ? "text-forest-900" : "text-forest-900/70"
+                      isActive ? "text-primary-dark" : "text-text-muted"
                     )}
                   >
                     {link.label}
@@ -176,15 +176,15 @@ export function Header() {
           </ul>
         </nav>
         
-        <div className="mt-8 border-t border-forest-900/10 pt-8 px-6 pb-8">
+        {/* <div className="mt-8 border-t border-soft pt-8 px-6 pb-8">
           <Link
             href="/products"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex w-full items-center justify-center bg-forest-900 text-white px-6 py-4 rounded-xl text-lg font-medium shadow-lg shadow-forest-900/20"
+            className="flex w-full items-center justify-center bg-primary text-white px-6 py-4 rounded-xl text-lg font-medium shadow-elevated shadow-primary/20"
           >
             Explore Products
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   );
