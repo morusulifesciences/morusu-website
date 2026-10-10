@@ -1,110 +1,108 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Leaf } from "lucide-react";
+import { VariableProximity } from "@/components/ui/VariableProximity";
+import { useBlobUrl } from "@/components/blob/BlobProvider";
 
-const HERO_SLIDES = [
-  {
-    image: "/images/hero1.png", // Spa / Wellness
-    title: "The Science of Nature",
-    // subtitle: "Ayurvedic Care. Naturally Modern.",
-  },
-  {
-    image: "/images/hero2.png", // Herbs / Botanical
-    title: "Pure Botanical Extracts",
-    // subtitle: "Harnessing the ancient power of traditional herbs.",
-  }
+const videos = [
+  "/videos/herbal_hair_care.mp4",
+  "/videos/skincare_commercial.mp4",
+  "/videos/moringa_capsules.mp4",
+  "/videos/hair_oil_commercial.mp4",
+  "/videos/dia_365.mp4",
+  "/videos/foot_cream.mp4",
+  "/videos/hair_oil_apply.mp4"
 ];
 
 export function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const handleNext = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const resolvedVideoUrl = useBlobUrl(videos[currentVideoIndex]);
 
   return (
-    <section className="relative w-full h-full flex items-center justify-center overflow-hidden">
-      {/* Background Carousel */}
-      {HERO_SLIDES.map((slide, idx) => (
-        <div
-          key={idx}
-          className={cn(
-            "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-            idx === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
-          )}
+    <section className="relative w-full min-h-[100dvh] flex flex-col justify-end bg-black pt-16 md:pt-24 pb-12 sm:pb-20 overflow-hidden group">
+      
+      {/* Video Player */}
+      {resolvedVideoUrl && (
+        <video 
+          key={currentVideoIndex}
+          autoPlay 
+          muted 
+          playsInline 
+          onEnded={handleNext}
+          className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src={slide.image} 
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-primary/20 sm:bg-primary/30 backdrop-blur-[1px]" />
-        </div>
-      ))}
+          <source src={resolvedVideoUrl} type="video/mp4" />
+        </video>
+      )}
+      
+      {/* Gradient overlay for text visibility */}
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0 pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center flex flex-col items-center mt-20">
-        {/* <span className="text-gold font-semibold uppercase tracking-widest mb-4 sm:mb-6 animate-fade-in block drop-shadow-card">
-          {HERO_SLIDES[currentSlide].subtitle}
-        </span> */}
+      {/* Navigation Arrows */}
+      <button 
+        onClick={handlePrev}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors opacity-0 group-hover:opacity-100"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+
+      <button 
+        onClick={handleNext}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors opacity-0 group-hover:opacity-100"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
         
-        {/* Cross-fading Titles */}
-        <div className="relative w-full flex items-center justify-center mb-8 min-h-[120px] md:min-h-[160px] lg:min-h-[200px]">
-          {HERO_SLIDES.map((slide, idx) => (
-            <h1
-              key={idx}
-              className={cn(
-                "absolute top-1/2 -translate-y-1/2 w-full text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] drop-shadow-elevated transition-all duration-1000 ease-in-out",
-                idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-              )}
+        <div className="flex flex-col items-center gap-8 md:gap-12 w-full max-w-5xl mx-auto">
+          
+          <h1 className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-serif text-cream leading-[1.1] font-semibold flex flex-col items-center drop-shadow-xl">
+            <VariableProximity 
+              text="Nature’s Wisdom" 
+              className="mb-1 md:mb-3" 
+              radius={250} 
+              falloff="exponential"
+            />
+            <span className="flex items-center justify-center text-[34px] sm:text-[46px] md:text-[56px] lg:text-[68px]">
+              <VariableProximity 
+                text="Your Everyday Wellness" 
+                radius={250} 
+                falloff="exponential"
+              />
+            </span>
+          </h1>
+          
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <Link 
+              href="/products" 
+              className="w-full sm:w-auto bg-gold text-primary-dark px-10 py-4 rounded-full text-[15px] md:text-[16px] font-bold hover:bg-gold-light transition-all flex items-center justify-center gap-2 group shadow-elevated hover:-translate-y-1"
             >
-              {slide.title}
-            </h1>
-          ))}
+              Explore Collection
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link 
+              href="/ayurveda" 
+              className="w-full sm:w-auto bg-white/20 text-white backdrop-blur-md border border-white/30 px-10 py-4 rounded-full text-[15px] md:text-[16px] font-bold hover:bg-white/30 transition-all flex items-center justify-center hover:-translate-y-1"
+            >
+              Our Philosophy
+            </Link>
+          </div>
         </div>
-        
-        <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium drop-shadow-card">
-          Discover our thoughtfully crafted collection of herbal hair care, skin care, and nutrition products.
-        </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in">
-          <Link 
-            href="/products" 
-            className="w-full sm:w-auto bg-white text-primary-dark px-8 py-4 rounded-full font-medium hover:bg-cream transition-colors flex items-center justify-center gap-2 group shadow-elevated"
-          >
-            Explore Collection
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link 
-            href="/ayurveda" 
-            className="w-full sm:w-auto px-8 py-4 rounded-full font-medium text-white border border-white/50 hover:bg-white/10 transition-colors flex items-center justify-center backdrop-blur-sm"
-          >
-            Our Philosophy
-          </Link>
-        </div>
-      </div>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-3 z-20">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentSlide(idx)}
-            className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              idx === currentSlide ? "bg-white w-8" : "bg-white/50 hover:bg-white/80"
-            )}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ export function AyurvedaCredibility() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
         <h2 className="text-3xl md:text-5xl font-serif text-primary-dark mb-4">
           Where Ayurvedic Wisdom<br/>Meets Modern Formulation
@@ -30,7 +30,7 @@ export function AyurvedaCredibility() {
 
         <Link 
           href="/ayurveda"
-          className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-primary-dark transition-colors"
+          className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-button hover:bg-primary-dark transition-colors"
         >
           Explore Ayurveda
           <ArrowRight className="w-5 h-5" />

@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useBlobUrl } from "@/components/blob/BlobProvider";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/components/cart/CartProvider";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -18,6 +20,9 @@ export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const { items, setIsCartOpen } = useCart();
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +65,7 @@ export function Header() {
       )}
     >
       <div className={cn(
-        "w-full max-w-6xl rounded-full transition-all duration-500 ease-out px-4 md:px-6",
+        "w-full max-w-6xl rounded-full transition-all duration-500 ease-out px-4 md:px-8 relative",
         isScrolled
           ? "bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-3"
           : "bg-white/40 backdrop-blur-md border border-white/30 shadow-[0_4px_20px_rgb(0,0,0,0.02)] py-4"
@@ -71,7 +76,7 @@ export function Header() {
             className="flex items-center z-50 relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/morusu-logo.png" alt="Morusu Life Sciences" className="h-10 md:h-12 w-auto" />
+            <img src={useBlobUrl("/morusu-logo.png") || ""} alt="Morusu Life Sciences" className="h-10 md:h-12 w-auto" />
             <span className="sr-only">Morusu Life Sciences</span>
           </Link>
 
@@ -79,7 +84,6 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             <ul className="flex items-center gap-6 xl:gap-8">
               {NAV_LINKS.map((link) => {
-                // Determine active state - simple exact match or prefix match for products/ingredients
                 const isActive =
                   link.href === "/"
                     ? pathname === "/"
@@ -90,8 +94,8 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-sm font-medium transition-colors hover:text-primary relative py-2",
-                        isActive ? "text-primary-dark" : "text-text-muted"
+                        "text-sm font-medium transition-colors hover:text-primary relative py-2 text-md text-nav",
+                        isActive ? "text-primary-dark" : "text-text-muted" 
                       )}
                     >
                       {link.label}
@@ -103,27 +107,37 @@ export function Header() {
                 );
               })}
             </ul>
-            {/* <Link
-              href="/products"
-              className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
-            >
-              Explore Products
-            </Link> */}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden z-50 relative p-2 text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
-            aria-expanded={mobileMenuOpen}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-4">
+            {/* Cart Button */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-primary-dark hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full hover:bg-cream"
+              aria-label="Open cart"
+            >
+              <ShoppingBag className="w-6 h-6" />
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 w-5 h-5 bg-gold text-white text-[10px] font-bold rounded-full flex items-center justify-center translate-x-1 -translate-y-1">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden z-50 relative p-2 text-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -138,7 +152,7 @@ export function Header() {
         <div className="flex items-center justify-between p-6 mb-4 border-b border-soft">
           <div className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/morusu-logo.png" alt="Morusu Life Sciences" className="h-10 w-auto" />
+            <img src={useBlobUrl("/images/morusu-logo.png") || ""} alt="Morusu Life Sciences" className="h-10 w-auto" />
             <span className="sr-only">Morusu Life Sciences</span>
           </div>
           <button
@@ -164,8 +178,8 @@ export function Header() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "text-2xl font-serif block transition-colors py-2",
-                      isActive ? "text-primary-dark" : "text-text-muted"
+                      "text-subheading block transition-colors py-2",
+                      isActive ? "text-primary-dark font-semibold" : "text-text-muted"
                     )}
                   >
                     {link.label}
@@ -175,16 +189,6 @@ export function Header() {
             })}
           </ul>
         </nav>
-        
-        {/* <div className="mt-8 border-t border-soft pt-8 px-6 pb-8">
-          <Link
-            href="/products"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex w-full items-center justify-center bg-primary text-white px-6 py-4 rounded-xl text-lg font-medium shadow-elevated shadow-primary/20"
-          >
-            Explore Products
-          </Link>
-        </div> */}
       </div>
     </header>
   );

@@ -2,6 +2,8 @@
 
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useBlobUrl } from "@/components/blob/BlobProvider";
+import { BlobImage as Image } from "@/components/blob/BlobImage";
 import { cn } from "@/lib/utils";
 
 const carouselIngredients = [
@@ -44,11 +46,11 @@ export function IngredientsCarousel() {
   };
 
   return (
-    <section className="py-20 bg-cream overflow-hidden border-t border-soft">
+    <section className="py-16 md:py-20 bg-cream overflow-hidden border-t border-soft">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif text-primary-dark mb-2">
+            <h2 className="text-section text-primary-dark mb-2">
               Key Ingredients We Use
             </h2>
             <p className="text-text-muted max-w-xl">
@@ -100,11 +102,11 @@ export function IngredientsCarousel() {
             >
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-sage-light mb-4 overflow-hidden relative shadow-soft border border-soft group-hover:shadow-card group-hover:scale-105 transition-all duration-300">
                 {ingredient.image ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img 
+                  <Image 
                     src={ingredient.image} 
                     alt={ingredient.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-primary-dark/30 text-xs">

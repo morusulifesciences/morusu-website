@@ -9,23 +9,30 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Link
               href="/"
-              className="flex items-center gap-2 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm w-fit"
+              className="inline-flex items-center bg-cream hover:bg-white transition-colors px-3.5 py-2 rounded-xl shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white w-fit"
             >
-              <div className="w-8 h-8 rounded-full bg-cream text-primary-dark flex items-center justify-center font-serif font-bold text-lg">
-                M
-              </div>
-              <span className="font-serif text-xl font-semibold tracking-tight">
-                Morusu Life Sciences
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/morusu-logo.png"
+                alt="Morusu Life Sciences"
+                className="h-10 md:h-11 w-auto object-contain"
+              />
+              <span className="sr-only">Morusu Life Sciences</span>
             </Link>
             <p className="text-sm leading-relaxed mt-2 max-w-xs font-serif italic text-gold">
-              "Science of Nature for a Healthier Tomorrow"
+              "Rooted in Ayurveda. Made for Everyday Wellness."
             </p>
             <p className="text-sm leading-relaxed max-w-xs text-white/80">
-              Natural care, rooted in Ayurveda, presented with modern science and modern design. Discover thoughtfully crafted herbal and Ayurvedic products for everyday wellness.
+              Explore thoughtfully crafted herbal and Ayurvedic products for hair, skin, foot care, and everyday wellness.
             </p>
             <div className="flex items-center gap-4 mt-4">
-              <a href="#" className="hover:text-white transition-colors" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/p/DeHTdyhKam1/?stkn=MTliMjZ3dXV1ejY2Mg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
               <a href="#" className="hover:text-white transition-colors" aria-label="Facebook">
@@ -44,43 +51,40 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-white transition-colors text-sm">About</Link></li>
               <li><Link href="/ayurveda" className="hover:text-white transition-colors text-sm">Ayurveda</Link></li>
               <li><Link href="/products" className="hover:text-white transition-colors text-sm">Products</Link></li>
-              <li><Link href="/ingredients" className="hover:text-white transition-colors text-sm">Ingredients</Link></li>
             </ul>
           </div>
 
           {/* Trust Links */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-2">Trust</h3>
+            <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-2">Information</h3>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/reviews" className="hover:text-white transition-colors text-sm">Reviews</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors text-sm">Contact Us</Link></li>
               <li><Link href="/certifications" className="hover:text-white transition-colors text-sm">Certifications</Link></li>
-              <li><Link href="/certifications" className="hover:text-white transition-colors text-sm">AYUSH Information</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-2">Contact</h3>
-            <ul className="flex flex-col gap-3 mb-4">
-              <li><Link href="/contact" className="hover:text-white transition-colors text-sm">Contact Page</Link></li>
-            </ul>
+            <h3 className="text-white font-semibold uppercase tracking-wider text-sm mb-2">Address</h3>
+           
             <address className="not-italic text-sm flex flex-col gap-3">
               <p>
-                <span className="block text-white/60 mb-1 text-xs">Address (Sample Data)</span>
-                123 Wellness Avenue<br />
-                Herbal Park, Mumbai<br />
-                Maharashtra, India 400001
+                <span className="block text-white/60 mb-1 text-xs">Address </span>
+               Plot no.21, Ground Floor, IDA, Phase -Il<br />
+                Charlapally, Kapra, Medchal Malakajgiri District, Telangana, <br />
+              500051CHERLAPALLY(V), KAPRA(M)
+MEDCHAL - MALKAJGIRI(D), T.S
               </p>
               <p>
                 <span className="block text-white/60 mb-1 text-xs">Email</span>
                 <a href="mailto:hello@morusulifesciences.com" className="hover:text-white transition-colors">
-                  hello@morusulifesciences.com
+support@morusulifesciences.com
                 </a>
               </p>
               <p>
                 <span className="block text-white/60 mb-1 text-xs">Phone</span>
                 <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 98765 43210
+                  +91 8639343659
                 </a>
               </p>
             </address>
@@ -93,8 +97,6 @@ export function Footer() {
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span className="w-1 h-1 rounded-full bg-primary"></span>
             <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
-            <span className="w-1 h-1 rounded-full bg-primary"></span>
-            <Link href="/terms" className="hover:text-white transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>

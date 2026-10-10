@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { BlobImage as Image } from "@/components/blob/BlobImage";
 import { getAllProducts } from "@/data/products";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Ayurvedic & Herbal Products | Morusu Life Sciences",
@@ -11,68 +13,88 @@ export default function ProductsPage() {
   const products = getAllProducts();
 
   return (
-    <div className="pt-32 pb-24 min-h-screen">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        <header className="mb-16 max-w-6xl">
-          {/* <span className="text-gold font-semibold uppercase tracking-wider mb-3 block">Our Collection</span> */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans tracking-tight text-primary-dark mb-6 mt-2 font-bold">
+    <div className="min-h-screen bg-cream">
+      
+      {/* Image Banner Top */}
+      <div className="relative pt-32 pb-12 md:pt-36 md:pb-20 overflow-hidden bg-primary-dark">
+        <Image 
+          src="/images/hero2.png" 
+          alt="Botanical Ingredients"
+          fill
+          priority
+          className="object-cover opacity-40 "
+        />
+        <div className="absolute inset-0 bg-primary/10 backdrop-blur-[1px]" />
+        
+        <div className="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center mt-12">
+          {/* <span className="text-label text-gold mb-3 block">Our Collection</span> */}
+          <h1 className="text-hero text-white mb-4 max-w-4xl mx-auto leading-tight">
             Ayurvedic & Herbal Products
           </h1>
-          <p className="text-md text-text-muted leading-relaxed font-sans ">
+          <div className="w-16 h-0.5 bg-gold mx-auto mb-5" />
+          <p className="text-intro text-cream max-w-3xl mx-auto font-medium">
             Explore our thoughtfully crafted collection of herbal hair care, skin care, nutrition, and everyday wellness products. Rooted in traditional Ayurvedic wisdom and presented for modern life.
           </p>
-        </header>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl py-16 lg:py-12">
+        {/* Increased grid density and reduced gaps for smaller cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {products.map((product) => (
             <div 
               key={product.slug} 
-              className="flex flex-col bg-white rounded-[2rem] p-4 shadow-soft border border-soft hover:border-soft transition-colors"
+              className="flex flex-col bg-white rounded-2xl p-3 shadow-soft hover:shadow-card hover:border-sage-light transition-all duration-300 group"
             >
-              {/* Product Image */}
+              {/* Smaller Product Image Container */}
               <Link 
                 href={`/products/${product.slug}`}
-                className="block relative h-64 sm:h-72 bg-cream rounded-[1.5rem] mb-6 overflow-hidden flex items-center justify-center p-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="block relative h-48 sm:h-56 bg-cream rounded-xl mb-4 overflow-hidden flex items-center justify-center p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-full object-contain drop-shadow-card" 
-                />
+                <div className="relative w-full h-full drop-shadow-md group-hover:scale-105 transition-transform duration-500">
+                  <Image 
+                    src={product.image ?? "images/placeholder.png"} 
+                    alt={product.name}
+                    fill
+                    className="object-contain" 
+                  />
+                </div>
               </Link>
               
               {/* Product Info */}
               <div className="flex flex-col flex-1 px-2 pb-2">
-                <div className="flex justify-between items-start mb-3 gap-2">
-                  <span className="text-primary text-xs font-bold uppercase tracking-wider">
-                    {product.category}
-                  </span>
-                  
+                <div className="flex justify-between items-start gap-2 mb-2">
+                  <h2 className="text-[17px] md:text-[19px] font-sans font-semibold text-primary-dark leading-snug">
+                    <Link href={`/products/${product.slug}`} className="hover:text-primary transition-colors">
+                      {product.name}
+                    </Link>
+                  </h2>
                 </div>
                 
-                <h2 className=" flex text-xl md:text-xl font-semibold font-sans text-primary-dark mb-3 leading-tight justify-between">
-                  <Link href={`/products/${product.slug}`} className="hover:text-primary transition-colors">
-                    {product.name}
-                  </Link>
-                  {product.sellingPrice && (
-                    <span className="text-primary-dark font-bold whitespace-nowrap bg-sage-light px-2.5 py-1 rounded-md text-sm font-sans">
-                      {product.sellingPrice}
-                    </span>
-                  )}
-                </h2>
-                
-                <p className="text-sm text-text-muted line-clamp-2 mb-6">
+                <p className="text-[13px] text-text-muted line-clamp-2 mb-5 leading-relaxed">
                   {product.shortDescription}
                 </p>
                 
                 {/* Clear Call to Action */}
-                <div className="mt-auto pt-4 border-t border-soft">
+                <div className="mt-auto pt-4 border-t border-soft flex items-center justify-between">
+                  <div className="flex flex-col">
+                    {product.sellingPrice && (
+                      <span className="text-primary-dark font-bold text-lg font-sans leading-none mb-1">
+                        {product.sellingPrice}
+                      </span>
+                    )}
+                    {product.mrp && product.mrp !== product.sellingPrice && (
+                      <span className="text-text-muted text-xs font-medium line-through leading-none">
+                        MRP: {product.mrp}
+                      </span>
+                    )}
+                  </div>
                   <Link 
                     href={`/products/${product.slug}`}
-                    className="flex w-full items-center justify-center gap-2 bg-primary text-white px-6 py-3.5 rounded-xl text-sm font-medium hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-soft"
+                    className="flex items-center justify-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-[13px] font-medium hover:bg-primary-dark transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover:-translate-y-0.5"
                   >
-                    View Product
+                    View
+                    <ArrowRight size={14}/>
                   </Link>
                 </div>
               </div>

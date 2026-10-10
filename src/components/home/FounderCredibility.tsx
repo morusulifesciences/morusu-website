@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function FounderCredibility() {
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-16 md:py-20 bg-cream">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="bg-primary rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-elevated flex flex-col md:flex-row items-center gap-12">
           <div className="absolute inset-0 bg-gold-light/10" />
@@ -17,7 +17,7 @@ export function FounderCredibility() {
             </p>
             <Link 
               href="/about"
-              className="inline-flex items-center gap-3 bg-white text-primary-dark px-8 py-4 rounded-full font-medium hover:bg-gold hover:text-primary-dark transition-colors"
+              className="inline-flex items-center gap-3 bg-white text-primary-dark px-8 py-4 rounded-full text-button hover:bg-gold hover:text-primary-dark transition-colors"
             >
               Discover Our Story
               <ArrowRight className="w-5 h-5" />
