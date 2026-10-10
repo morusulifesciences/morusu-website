@@ -10,7 +10,9 @@ const CACHE_DURATION_MS = 1000 * 60 * 60; // 1 hour
  */
 export async function getBlobMap(): Promise<Record<string, string>> {
   const now = Date.now();
-  if (cachedBlobMap && now - lastFetchTime < CACHE_DURATION_MS) {
+
+  
+  if ( cachedBlobMap && now - lastFetchTime < CACHE_DURATION_MS) {
     return cachedBlobMap;
   }
 

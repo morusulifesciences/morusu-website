@@ -50,7 +50,7 @@ export function Dia365Popup() {
         {/* Left: Image Frame */}
         <div className="w-full md:w-[45%] relative bg-cream flex-shrink-0 min-h-[250px] md:min-h-full">
           <Image 
-            src="/models/dia-365.png" 
+            src="/models/dia-365/product_mockup.png" 
             alt="Dia 365 - Natural Support for Healthy Blood Sugar" 
             fill
             className="object-contain p-8 md:p-12" 

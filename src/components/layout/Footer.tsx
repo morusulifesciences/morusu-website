@@ -13,7 +13,7 @@ export function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/morusu-logo.png"
+                src="/morusu-logo.png"
                 alt="Morusu Life Sciences"
                 className="h-10 md:h-11 w-auto object-contain"
               />
