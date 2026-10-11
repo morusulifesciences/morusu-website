@@ -12,93 +12,88 @@ export default function CertificationsPage() {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        <header className="mb-16 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary-dark mb-6">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl">
+        <header className="mb-20 max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-sans font-bold tracking-tight text-primary-dark mb-6 leading-tight">
             Regulatory Approvals & Quality
           </h1>
-          <p className="text-lg text-text-muted leading-relaxed">
+          <p className="text-lg md:text-xl text-text-muted leading-relaxed font-sans">
             We are committed to maintaining rigorous quality standards and regulatory compliance for all our formulations.
           </p>
         </header>
 
-        {/* AYUSH Document Section */}
-        <div className="bg-white border-2 border-soft p-10 md:p-16 rounded-[2.5rem] shadow-soft mb-20">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+        {/* Minimalist AYUSH Document Section */}
+        <div className="mb-24 border-t border-soft pt-16">
+          <div className="flex flex-col md:flex-row gap-16 lg:gap-24 items-start">
+            
             <div className="md:w-1/2">
-              <div className="inline-flex items-center gap-2 bg-gold-light/20 text-primary-dark px-4 py-2 rounded-full text-sm font-semibold mb-6 uppercase tracking-wider">
-                <ShieldCheck className="w-5 h-5" />
+              <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4 uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4" />
                 Official Certification
               </div>
-              <h2 className="text-3xl md:text-4xl font-serif text-primary-dark mb-6">AYUSH Approval</h2>
+              <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-primary-dark mb-8">AYUSH Approval</h2>
               
-              <div className="space-y-4 mb-8">
-                <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Issuing Department</p>
-                  <p className="text-primary-dark font-medium text-lg">Government of Telangana, Department of AYUSH</p>
+              <div className="space-y-6 mb-10">
+                <div className="grid grid-cols-2 gap-4 border-b border-soft pb-4">
+                  <span className="text-sm text-text-muted font-medium">Issuing Department</span>
+                  <span className="text-primary-dark font-medium text-right text-sm">Dept. of AYUSH, Govt. of Telangana</span>
                 </div>
-                <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">AYUSH License</p>
-                  <p className="text-primary-dark font-medium text-lg">T-2217/Ayur</p>
+                <div className="grid grid-cols-2 gap-4 border-b border-soft pb-4">
+                  <span className="text-sm text-text-muted font-medium">AYUSH License</span>
+                  <span className="text-primary-dark font-medium text-right text-sm">T-2217/Ayur</span>
                 </div>
-                <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Approval Letter No.</p>
-                  <p className="text-primary-dark font-medium text-lg">13627/DA/2024</p>
+                <div className="grid grid-cols-2 gap-4 border-b border-soft pb-4">
+                  <span className="text-sm text-text-muted font-medium">Approval Letter No.</span>
+                  <span className="text-primary-dark font-medium text-right text-sm">13627/DA/2024</span>
                 </div>
-                <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Approval Date</p>
-                  <p className="text-primary-dark font-medium text-lg">30/12/2024</p>
-                </div>
-                <div>
-                  <p className="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Approving Authority</p>
-                  <p className="text-primary-dark font-medium">Dr. Ajmera Parameshwar Naik<br/><span className="text-sm font-normal text-text-muted">Additional Director (Ayurveda), Drug Licensing Authority</span></p>
+                <div className="grid grid-cols-2 gap-4 border-b border-soft pb-4">
+                  <span className="text-sm text-text-muted font-medium">Approval Date</span>
+                  <span className="text-primary-dark font-medium text-right text-sm">30/12/2024</span>
                 </div>
               </div>
               
-              <a href="#" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-dark transition-colors font-medium">
-                <Download className="w-5 h-5" />
-                View AYUSH Approval
+              <a href="/pdfs/ayush.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-dark text-white px-7 py-3.5 rounded-full hover:bg-primary transition-all font-medium text-sm tracking-wide">
+                <Download className="w-4 h-4" />
+                View Official Document
               </a>
             </div>
             
-            <div className="md:w-1/2 w-full">
-               <div className="bg-sage-light border border-soft p-8 rounded-2xl relative">
-                  <div className="absolute top-4 right-4 opacity-10">
-                     <ShieldCheck className="w-24 h-24 text-primary-dark" />
-                  </div>
-                  <h3 className="text-2xl font-serif text-primary-dark mb-6 relative z-10">AYUSH-Approved Products</h3>
-                  
-                  <div className="space-y-6 relative z-10">
-                    <div className="bg-white p-6 rounded-xl shadow-soft border border-soft">
-                      <h4 className="text-lg font-serif text-primary-dark mb-1">DIA 365 CREAM</h4>
-                      <p className="text-sm text-text-muted font-mono">Product ID: T-2217/Ayur/0002/2024/P</p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-xl shadow-soft border border-soft">
-                      <h4 className="text-lg font-serif text-primary-dark mb-1">EXMOR CAPSULE</h4>
-                      <p className="text-sm text-text-muted font-mono">Product ID: T-2217/Ayur/0003/2024/P</p>
-                    </div>
-                  </div>
+            <div className="md:w-1/2 w-full pt-2 md:pt-14">
+               <h3 className="text-lg font-sans font-semibold text-primary-dark mb-6">Approved Formulations</h3>
+               
+               <div className="space-y-4">
+                 <div className="group flex justify-between items-center p-5 border border-soft hover:border-primary/30 transition-colors rounded-xl bg-white shadow-sm">
+                   <h4 className="text-sm font-sans font-bold text-primary-dark">DIA 365 CREAM</h4>
+                   <span className="text-xs text-text-muted font-mono bg-surface px-3 py-1 rounded-full group-hover:bg-primary/5 transition-colors">T-2217/Ayur/0002/2024/P</span>
+                 </div>
+                 
+                 <div className="group flex justify-between items-center p-5 border border-soft hover:border-primary/30 transition-colors rounded-xl bg-white shadow-sm">
+                   <h4 className="text-sm font-sans font-bold text-primary-dark">EXMOR CAPSULE</h4>
+                   <span className="text-xs text-text-muted font-mono bg-surface px-3 py-1 rounded-full group-hover:bg-primary/5 transition-colors">T-2217/Ayur/0003/2024/P</span>
+                 </div>
                </div>
             </div>
+            
           </div>
         </div>
 
-        <div className="mt-16">
-          <h2 className="text-3xl font-serif text-primary-dark mb-8">Other Certifications</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-20 border-t border-soft pt-16">
+          <h2 className="text-3xl font-sans font-bold text-primary-dark mb-10 tracking-tight">Other Certifications</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <div key={cert.id} className="p-8 rounded-2xl bg-white border border-soft shadow-soft flex flex-col items-start">
-                <ShieldCheck className="w-10 h-10 text-primary mb-6" />
-                <h2 className="text-2xl font-serif text-primary-dark mb-3">{cert.name}</h2>
-                <p className="text-text-muted mb-8 flex-1">{cert.description}</p>
+              <div key={cert.id} className="p-8 rounded-2xl bg-white border border-soft hover:shadow-sm transition-shadow flex flex-col items-start group">
+                <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center text-primary-dark mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <h2 className="text-xl font-sans font-bold text-primary-dark mb-2">{cert.name}</h2>
+                <p className="text-sm text-text-muted mb-8 flex-1">{cert.description}</p>
                 
                 <button 
                   disabled
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary-dark/40 bg-primary/5 px-4 py-2 rounded-lg cursor-not-allowed w-full justify-center"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-primary-dark/40 bg-surface px-4 py-2 rounded-lg cursor-not-allowed uppercase tracking-wider"
                 >
-                  <Download className="w-4 h-4" />
-                  Certificate (Pending)
+                  <Download className="w-3 h-3" />
+                  Pending
                 </button>
               </div>
             ))}

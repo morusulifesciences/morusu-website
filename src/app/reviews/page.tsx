@@ -15,10 +15,10 @@ export default async function ReviewsPage() {
     <div className="pt-32 pb-24 min-h-screen bg-cream-dark/20">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl">
         <header className="mb-12 text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary-dark mb-6">
+          <h1 className="text-section text-primary-dark mb-6">
             Customer Reviews
           </h1>
-          <p className="text-lg text-text-muted mb-6">
+          <p className="text-body-content text-text-muted mb-6">
             Read what our customers are saying about their experience with Morusu Life Sciences products.
           </p>
           <div className="inline-flex items-center gap-4 bg-white px-6 py-4 rounded-2xl border border-soft shadow-soft">

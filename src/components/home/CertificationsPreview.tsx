@@ -6,9 +6,9 @@ export function CertificationsPreview() {
   const certifications = getAllCertifications().slice(0, 4);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-primary-dark mb-6 max-w-3xl mx-auto">
+        <h2 className="text-section text-primary-dark mb-6 max-w-3xl mx-auto">
           Quality You Can See. Standards You Can Trust.
         </h2>
         <p className="text-text-muted mb-12 max-w-2xl mx-auto">

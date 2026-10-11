@@ -10,14 +10,14 @@ export function IngredientsShowcase() {
   ];
 
   return (
-    <section className="py-24 bg-cream">
+    <section className="py-16 md:py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <span className="text-primary text-sm font-semibold uppercase tracking-wider mb-2 block">
+            <span className="text-primary text-label mb-2 block">
               Our Ingredients
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-primary-dark mb-6">
+            <h2 className="text-section text-primary-dark mb-6">
               Powered by Nature's Ingredients
             </h2>
             <p className="text-text-muted leading-relaxed">

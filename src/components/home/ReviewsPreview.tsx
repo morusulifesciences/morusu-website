@@ -7,11 +7,11 @@ export async function ReviewsPreview() {
   const placeDetails = await getGooglePlaceDetails();
 
   return (
-    <section className="py-24 bg-cream-dark/30">
+    <section className="py-16 md:py-24 bg-cream-dark/30">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-primary-dark mb-6">
+            <h2 className="text-section text-primary-dark mb-6">
               What Customers Say
             </h2>
             <div className="flex items-center gap-4 text-text-muted">

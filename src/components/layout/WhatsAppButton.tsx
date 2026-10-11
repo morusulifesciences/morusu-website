@@ -2,7 +2,7 @@
 
 export function WhatsAppButton() {
   // Using 91 prefix for India
-  const phoneNumber = "917893683052";
+  const phoneNumber = "918639343659";
   const message = encodeURIComponent("Hello, I would like to enquire about your products.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

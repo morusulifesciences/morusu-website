@@ -29,14 +29,13 @@ export function ContactForm() {
     try {
       await fetch(endpoint, {
         method: "POST",
-        mode: "no-cors", // Bypasses browser CORS restrictions on Google Script redirects
+        mode: "no-cors",
         headers: {
           "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify(formData),
       });
 
-      // With mode: 'no-cors', the response is opaque, so success is assumed if no network error occurred
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
@@ -48,7 +47,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-primary-dark mb-2">Full Name</label>
+        <label htmlFor="name" className="block text-nav text-primary-dark mb-2">Full Name</label>
         <input 
           type="text" 
           id="name" 
@@ -56,12 +55,12 @@ export function ContactForm() {
           onChange={handleChange}
           required
           autoComplete="name"
-          className="w-full px-5 py-4 rounded-2xl bg-cream-dark/20 border border-soft focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors" 
+          className="w-full px-5 py-4 rounded-xl bg-white border border-soft shadow-[0_2px_10px_rgb(0,0,0,0.02)] focus:outline-none focus:ring-2 focus:ring-primary transition-all text-body-content" 
           placeholder="Your name"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-primary-dark mb-2">Email Address</label>
+        <label htmlFor="email" className="block text-nav text-primary-dark mb-2">Email Address</label>
         <input 
           type="email" 
           id="email" 
@@ -70,12 +69,12 @@ export function ContactForm() {
           required
           autoComplete="email"
           inputMode="email"
-          className="w-full px-5 py-4 rounded-2xl bg-cream-dark/20 border border-soft focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors" 
+          className="w-full px-5 py-4 rounded-xl bg-white border border-soft shadow-[0_2px_10px_rgb(0,0,0,0.02)] focus:outline-none focus:ring-2 focus:ring-primary transition-all text-body-content" 
           placeholder="hello@example.com"
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-primary-dark mb-2">Phone Number</label>
+        <label htmlFor="phone" className="block text-nav text-primary-dark mb-2">Phone Number</label>
         <input 
           type="tel" 
           id="phone" 
@@ -84,37 +83,37 @@ export function ContactForm() {
           required
           autoComplete="tel"
           inputMode="tel"
-          className="w-full px-5 py-4 rounded-2xl bg-cream-dark/20 border border-soft focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors" 
+          className="w-full px-5 py-4 rounded-xl bg-white border border-soft shadow-[0_2px_10px_rgb(0,0,0,0.02)] focus:outline-none focus:ring-2 focus:ring-primary transition-all text-body-content" 
           placeholder="+91"
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-primary-dark mb-2">Message</label>
+        <label htmlFor="message" className="block text-nav text-primary-dark mb-2">Message</label>
         <textarea 
           id="message" 
           value={formData.message}
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-5 py-4 rounded-2xl bg-cream-dark/20 border border-soft focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors resize-none" 
+          className="w-full px-5 py-4 rounded-xl bg-white border border-soft shadow-[0_2px_10px_rgb(0,0,0,0.02)] focus:outline-none focus:ring-2 focus:ring-primary transition-all text-body-content resize-none" 
           placeholder="How can we help you?"
         ></textarea>
       </div>
       <button 
         type="submit" 
         disabled={status === "submitting"}
-        className="mt-4 w-full bg-primary text-white py-5 rounded-2xl font-medium hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary shadow-elevated disabled:opacity-70 disabled:cursor-not-allowed"
+        className="mt-2 w-full bg-primary text-white py-4 rounded-xl text-button hover:bg-primary-dark transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary shadow-elevated disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5"
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
       
       {status === "success" && (
-        <div className="p-4 bg-sage-light text-primary-dark rounded-xl text-center text-sm font-medium">
+        <div className="p-4 bg-sage-light text-primary-dark rounded-xl text-center text-nav font-medium">
           Thank you! Your message has been sent successfully.
         </div>
       )}
       {status === "error" && (
-        <div className="p-4 bg-red-50 text-red-700 rounded-xl text-center text-sm font-medium">
+        <div className="p-4 bg-red-50 text-red-700 rounded-xl text-center text-nav font-medium">
           Something went wrong. Please try again later.
         </div>
       )}
