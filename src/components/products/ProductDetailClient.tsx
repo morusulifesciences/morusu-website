@@ -135,7 +135,7 @@ export function ProductDetailClient({ product }: Props) {
             </p>
 
             {/* Icon Boxes */}
-            <div className="grid grid-cols-3 gap-3 mb-6 max-w-xl">
+            {/* <div className="grid grid-cols-3 gap-3 mb-6 max-w-xl">
               <div className="flex flex-col items-center justify-center text-center gap-2 p-3 border border-soft rounded-2xl">
                 <Shield className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 <span className="text-[11px] lg:text-[12px] font-medium text-primary-dark leading-tight px-1">Supports Healthy<br/>Sugar Levels</span>
@@ -148,7 +148,7 @@ export function ProductDetailClient({ product }: Props) {
                 <Leaf className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 <span className="text-[11px] lg:text-[12px] font-medium text-primary-dark leading-tight px-1">100% Natural<br/>Ingredients</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Pack Size */}
             {product.packSize && (
