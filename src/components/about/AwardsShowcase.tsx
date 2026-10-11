@@ -84,7 +84,7 @@ const RECOGNITIONS: RecognitionItem[] = [
     details: "Distinguished three-star golden sculpture trophy presented in recognition of pioneering excellence and valuable service in Indian Ayurvedic manufacturing.",
     date: "National Award Ceremony",
     location: "Indore / New Delhi, India",
-    image: "/images/awards/bharat-gaurav-trophy.jpg",
+    image: "/images/awards/bharatgurav.png",
     imageAlt: "Bharat Gaurav Samman Parishad National Star Trophy presented to Dr. M. Murali Mohan",
     aspectHint: "portrait",
   },

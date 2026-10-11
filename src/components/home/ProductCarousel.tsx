@@ -65,13 +65,16 @@ export function ProductCarousel() {
                   </p>
                 </div>
               
-                <Link 
-                  href={`/products/${product.slug}`}
-                  className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-white shadow-sm hover:bg-gold-light hover:scale-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                  aria-label={`View ${product.name}`}
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                
+<Link
+  href={`/products/${product.slug}`}
+  className="w-22 flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:scale-105 hover:bg-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+  aria-label={`View ${product.name}`}
+>
+  View
+  <ArrowRight className="h-4 w-4" />
+</Link>
+
               </div>
             ))}
           </div>

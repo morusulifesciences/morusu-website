@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { AwardsShowcase } from "@/components/about/AwardsShowcase";
+import { BlobImage as Image } from "@/components/blob/BlobImage";
 
 export const metadata: Metadata = {
   title: "About Morusu Life Sciences | Our Story & Founder",
@@ -28,19 +29,22 @@ export default function AboutPage() {
       {/* 500px Nature Background Hero Section */}
       <section className="relative h-[500px] w-full flex items-center justify-center overflow-hidden mb-16 md:mb-20">
         {/* Nature Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/aboutusbanner.jpeg')" }}
+        <Image
+          src="/images/aboutusbanner.jpeg"
+          alt="About Morusu Life Sciences"
+          fill
+          priority
+          className="object-cover"
         />
         {/* Emerald Botanical Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/85 via-primary-dark/70 to-primary-dark/90" />
+        <div className="absolute inset-0 bg-gradient-to-b  to-primary-dark/90" />
         <div className="absolute inset-0 bg-radial-[circle_at_center] from-gold/15 via-transparent to-transparent pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl text-center pt-16">
-          <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold-light font-semibold uppercase tracking-widest text-xs md:text-sm px-4 py-1.5 rounded-full mb-4 backdrop-blur-md">
+          {/* <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold-light font-semibold uppercase tracking-widest text-xs md:text-sm px-4 py-1.5 rounded-full mb-4 backdrop-blur-md">
             Who We Are
-          </div>
+          </div> */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 max-w-4xl mx-auto leading-tight drop-shadow-md">
             About Morusu Life Sciences
           </h1>
@@ -83,12 +87,12 @@ export default function AboutPage() {
 
           {/* Right Column: Image with Floating 100+ Badge */}
           <div className="lg:col-span-5 relative pb-8 pr-2 sm:pb-10 sm:pr-4">
-            <div className="rounded-[2.5rem] overflow-hidden shadow-elevated border border-soft bg-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="rounded-[2.5rem] overflow-hidden shadow-elevated border border-soft bg-white relative aspect-[4/5] w-full">
+              <Image
                 src="/images/aboutus.png"
                 alt="Ayurvedic Scientists and Botanical Formulations"
-                className="w-full h-auto object-cover aspect-[4/5]"
+                fill
+                className="object-cover"
               />
             </div>
 
@@ -111,11 +115,11 @@ export default function AboutPage() {
             {/* Founder Profile Column */}
             <div className="w-full lg:w-[38%] flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="relative w-44 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden shadow-elevated border-2 border-gold/40 bg-primary-dark mb-6">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/founder.png"
                   alt="Dr. M. Murali Mohan - Founder & Managing Director"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  className="object-cover object-top"
                 />
               </div>
               <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold mb-2">

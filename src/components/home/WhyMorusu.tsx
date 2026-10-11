@@ -66,7 +66,7 @@ export function WhyMorusu() {
       */}
 
       {/* Full Width Edge-to-Edge Image */}
-      <div className="w-full relative min-h-[400px]">
+      <div className="w-full relative h-[750px]">
         <Image 
           src="/images/why.png" 
           alt="Why Morusu Life Sciences" 

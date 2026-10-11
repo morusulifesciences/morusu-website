@@ -41,7 +41,7 @@ export function ProductDetailClient({ product }: Props) {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-text-muted mb-8 mt-2 font-medium">
+        <div className="flex items-center gap-2 text-sm text-text-muted mb-8 mt-2 font-medium lg:pl-8 xl:pl-14 2xl:pl-16">
           <a href="/" className="hover:text-primary transition-colors">Home</a>
           <span>›</span>
           <a href="/products" className="hover:text-primary transition-colors">Products</a>
@@ -50,7 +50,7 @@ export function ProductDetailClient({ product }: Props) {
         </div>
 
         {/* Top Split Layout - Narrower Left Column */}
-        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] xl:grid-cols-[380px_1fr] gap-10 lg:gap-12 mb-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] xl:grid-cols-[380px_1fr] gap-10 lg:gap-12 mb-12 items-start lg:pl-8 xl:pl-14 2xl:pl-16">
           
           {/* Left: Images */}
           <div className="flex flex-col gap-3 w-full sticky top-32">
@@ -297,14 +297,14 @@ export function ProductDetailClient({ product }: Props) {
           </div>
 
           {/* Editorial Image next to Tab Content */}
-          <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border border-soft">
+          {/* <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border border-soft">
             <Image 
               src="/images/hero1.png" 
               alt="Natural Ayurvedic Ingredients"
               fill
               className="object-cover"
             />
-          </div>
+          </div> */}
         </div>
 
       </div>

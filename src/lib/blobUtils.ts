@@ -33,16 +33,22 @@ export async function getBlobMap(): Promise<Record<string, string>> {
   }
 }
 
+const BLOB_BASE_URL = "https://ijxvwstfnhjz7yll.public.blob.vercel-storage.com";
+
 /**
  * Resolves a local asset path to its Vercel Blob URL if it exists.
- * Falls back to the local path if the blob isn't found.
+ * Falls back to the direct Blob storage URL if the blob isn't found in memory cache.
  */
 export async function getAssetUrl(localPath: string): Promise<string> {
+  if (localPath.startsWith('http://') || localPath.startsWith('https://')) {
+    return localPath;
+  }
   // morusu-logo.png is explicitly in the public folder per instructions
   if (localPath.includes("morusu-logo.png")) {
-    return localPath;
+    return "/morusu-logo.png";
   }
 
   const blobMap = await getBlobMap();
-  return blobMap[localPath] || localPath;
+  const normalizedPath = localPath.startsWith('/') ? localPath : `/${localPath}`;
+  return blobMap[normalizedPath] || `${BLOB_BASE_URL}${normalizedPath}`;
 }

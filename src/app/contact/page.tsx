@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { BlobImage as Image } from "@/components/blob/BlobImage";
 
 export const metadata: Metadata = {
   title: "Contact Morusu Life Sciences",
@@ -12,11 +13,24 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-surface">
       {/* Banner Top */}
-      <div className="relative pt-32 pb-16 md:pt-36 md:pb-20 bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-gold-light/5" />
-        <div className="container relative mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center mt-12">
-          <span className="text-label text-gold mb-3 block">Get In Touch</span>
-          <h1 className="text-hero text-white mb-4 max-w-4xl mx-auto leading-tight">
+      <div className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-primary-dark overflow-hidden flex items-center justify-center">
+        {/* Botanical Background Banner Image from Vercel Blob */}
+        <Image
+          src="/images/contactus.png"
+          alt="Contact Morusu Life Sciences"
+          fill
+          priority
+          className="object-cover opacity-35"
+        />
+        {/* Emerald Botanical Gradient Overlays */}
+        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-radial-[circle_at_center] from-gold/15 via-transparent to-transparent pointer-events-none" />
+
+        <div className="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center mt-4">
+          {/* <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold-light font-semibold uppercase tracking-widest text-xs md:text-sm px-4 py-1.5 rounded-full mb-4 backdrop-blur-md">
+            Get In Touch
+          </div> */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 max-w-4xl mx-auto leading-tight drop-shadow-md">
             Contact Us
           </h1>
           <div className="w-16 h-0.5 bg-gold mx-auto mb-5" />

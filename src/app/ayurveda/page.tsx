@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Leaf,
 } from "lucide-react";
+import { BlobImage as Image } from "@/components/blob/BlobImage";
 
 export const metadata: Metadata = {
   title: "Ayurveda & Natural Wellness | Morusu Life Sciences",
@@ -58,48 +59,56 @@ const CONFIRMED_INGREDIENTS = [
     botanical: "Azadirachta indica",
     usage: "Traditionally used in Ayurvedic practices for its cleansing and purifying properties.",
     category: "Foot Care & Skin",
+    image: "/images/ingredients/Neem.png",
   },
   {
     name: "Brahmi",
     botanical: "Bacopa monnieri",
     usage: "Traditionally used in Ayurvedic preparations for vitality, nourishment, and wellbeing.",
     category: "Wellness & Foot Care",
+    image: "/images/ingredients/brami.png",
   },
   {
     name: "Fenugreek",
     botanical: "Trigonella foenum-graecum",
     usage: "Traditionally used in herbal hair and wellness preparations for nourishment and softness.",
     category: "Hair Care & Foot Care",
+    image: "/images/ingredients/Fenugreek.png",
   },
   {
     name: "Onion",
     botanical: "Allium cepa",
     usage: "Traditionally used in herbal hair formulations to support scalp health and follicle vitality.",
     category: "Hair Care",
+    image: "/images/ingredients/onion.png",
   },
   {
     name: "Moringa",
     botanical: "Moringa oleifera",
     usage: "Traditionally valued as a nutrient-dense botanical ingredient for everyday wellness.",
     category: "Wellness",
+    image: "/images/ingredients/moringa.png",
   },
   {
     name: "Kalajamaun",
     botanical: "Syzygium cumini",
     usage: "Traditionally used in Ayurvedic herbal therapy and specialized topical preparations.",
     category: "Foot Care",
+    image: "/images/ingredients/kalajamanu.png",
   },
   {
     name: "Coconut Oil",
     botanical: "Cocos nucifera",
     usage: "Traditionally used as a deeply nourishing natural botanical carrier in herbal hair oils.",
     category: "Hair Care",
+    image: "/images/ingredients/cocunut.png",
   },
   {
     name: "Aloe Vera",
     botanical: "Aloe barbadensis",
     usage: "Traditionally known and used for its gentle hydrating, soothing, and cooling properties.",
     category: "Skin & Hair Care",
+    image: "/images/ingredients/aloe.png",
   },
 ];
 
@@ -115,12 +124,15 @@ export default function AyurvedaPage() {
           ================================================== */}
       <section className="relative h-[500px] w-full flex items-center justify-center overflow-hidden mb-16 md:mb-24">
         {/* Nature Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/ayurveda-hero.jpg')" }}
+        <Image
+          src="/images/ayurveda.png"
+          alt="Ayurveda, Rooted in Tradition"
+          fill
+          priority
+          className="object-cover"
         />
         {/* Deep Botanical & Dark Gradient Overlays for high contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/90 via-primary-dark/75 to-primary-dark/95" />
+        <div className="absolute inset-0 bg-gradient-to-b  to-primary-dark/85" />
         <div className="absolute inset-0 bg-radial-[circle_at_center] from-gold/15 via-transparent to-transparent pointer-events-none" />
 
         {/* Hero Content */}
@@ -161,12 +173,12 @@ export default function AyurvedaPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               {/* Left Column: Image */}
               <div className="lg:col-span-5">
-                <div className="rounded-[2rem] overflow-hidden shadow-elevated border border-soft h-[360px] md:h-[420px] bg-cream/50">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/wisdom.png"
+                <div className="rounded-[2rem] overflow-hidden shadow-elevated border border-soft h-[360px] md:h-[420px] bg-cream/50 relative">
+                  <Image
+                    src="/images/ayurvedicwisdom.png"
                     alt="Ayurvedic Heritage and Traditional Knowledge"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -245,12 +257,14 @@ export default function AyurvedaPage() {
               >
                 {/* Product Image Box */}
                 <div className="bg-cream/50 p-6 flex items-center justify-center h-52 relative border-b border-soft/60">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={cat.image}
-                    alt={cat.title}
-                    className="max-h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
+                  <div className="relative w-full h-40">
+                    <Image
+                      src={cat.image}
+                      alt={cat.title}
+                      fill
+                      className="object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
@@ -302,15 +316,29 @@ export default function AyurvedaPage() {
             {CONFIRMED_INGREDIENTS.map((ing) => (
               <div
                 key={ing.name}
-                className="bg-white p-6 rounded-[1.8rem] border border-soft shadow-soft flex flex-col justify-between hover:border-primary/40 transition-colors"
+                className="bg-white p-6 rounded-[2rem] border border-soft shadow-soft flex flex-col justify-between hover:border-primary/40 hover:shadow-card transition-all duration-300 group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  {/* Category & Badge */}
+                  {/* <div className="flex items-center justify-between mb-4">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-1 rounded-md">
                       {ing.category}
                     </span>
                     <Leaf className="w-4 h-4 text-primary" />
+                  </div> */}
+
+                  {/* Circular Image Container */}
+                  <div className="flex justify-center my-3 mb-5">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-cream/70 border-2 border-soft overflow-hidden relative shadow-soft group-hover:scale-105 group-hover:border-primary/30 transition-all duration-300">
+                      <Image
+                        src={ing.image}
+                        alt={ing.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
+
                   <h3 className="text-xl font-serif font-bold text-primary-dark mb-0.5">
                     {ing.name}
                   </h3>

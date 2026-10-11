@@ -60,6 +60,8 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li><Link href="/contact" className="hover:text-white transition-colors text-sm">Contact Us</Link></li>
               <li><Link href="/certifications" className="hover:text-white transition-colors text-sm">Certifications</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors text-sm">Terms & Conditions</Link></li>
             </ul>
           </div>
 
@@ -69,21 +71,18 @@ export function Footer() {
            
             <address className="not-italic text-sm flex flex-col gap-3">
               <p>
-                <span className="block text-white/60 mb-1 text-xs">Address </span>
-               Plot no.21, Ground Floor, IDA, Phase -Il<br />
-                Charlapally, Kapra, Medchal Malakajgiri District, Telangana, <br />
-              500051CHERLAPALLY(V), KAPRA(M)
-MEDCHAL - MALKAJGIRI(D), T.S
+                <span className="block text-white/60 mb-1 text-xs">Address</span>
+                Plot No. 21, Ground Floor, IDA, Phase II, Cherlapally, Kapra, Medchal–Malkajgiri District, Telangana – 500051, India.
               </p>
               <p>
                 <span className="block text-white/60 mb-1 text-xs">Email</span>
-                <a href="mailto:hello@morusulifesciences.com" className="hover:text-white transition-colors">
-support@morusulifesciences.com
+                <a href="mailto:support@morusulifesciences.com" className="hover:text-white transition-colors">
+                  support@morusulifesciences.com
                 </a>
               </p>
               <p>
                 <span className="block text-white/60 mb-1 text-xs">Phone</span>
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
+                <a href="tel:+918639343659" className="hover:text-white transition-colors">
                   +91 8639343659
                 </a>
               </p>

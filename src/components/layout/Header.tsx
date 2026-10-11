@@ -65,10 +65,10 @@ export function Header() {
       )}
     >
       <div className={cn(
-        "w-full max-w-6xl rounded-full transition-all duration-500 ease-out px-4 md:px-8 relative",
+        "w-full max-w-5xl rounded-full transition-all duration-500 ease-out px-4 md:px-8 relative",
         isScrolled
-          ? "bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-3"
-          : "bg-white/40 backdrop-blur-md border border-white/30 shadow-[0_4px_20px_rgb(0,0,0,0.02)] py-4"
+          ? "bg-white/90 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-3"
+          : "bg-white/60 backdrop-blur-md border border-white/30 shadow-[0_4px_20px_rgb(0,0,0,0.02)] py-4"
       )}>
         <div className="flex items-center justify-between">
           <Link
@@ -95,7 +95,7 @@ export function Header() {
                       href={link.href}
                       className={cn(
                         "text-sm font-medium transition-colors hover:text-primary relative py-2 text-md text-nav",
-                        isActive ? "text-primary-dark" : "text-text-muted" 
+                        isActive ? "text-primary-dark font-extrabold" : "font-sans fill-text-muted" 
                       )}
                     >
                       {link.label}
@@ -152,7 +152,7 @@ export function Header() {
         <div className="flex items-center justify-between p-6 mb-4 border-b border-soft">
           <div className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={useBlobUrl("/images/morusu-logo.png") || ""} alt="Morusu Life Sciences" className="h-10 w-auto" />
+            <img src={useBlobUrl("/morusu-logo.png") || ""} alt="Morusu Life Sciences" className="h-10 w-auto" />
             <span className="sr-only">Morusu Life Sciences</span>
           </div>
           <button
