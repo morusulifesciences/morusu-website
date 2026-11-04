@@ -78,14 +78,14 @@ export default function ProductsPage() {
                 {/* Clear Call to Action */}
                 <div className="mt-auto pt-4 border-t border-soft flex items-center justify-between">
                   <div className="flex flex-col">
-                    {product.sellingPrice && (
+                    {/* {product.sellingPrice && (
                       <span className="text-primary-dark font-bold text-lg font-sans leading-none mb-1">
                         {product.sellingPrice}
                       </span>
-                    )}
+                    )} */}
                     {product.mrp && product.mrp !== product.sellingPrice && (
-                      <span className="text-text-muted text-xs font-medium line-through leading-none">
-                        MRP: {product.mrp}
+                      <span className="text-primary-dark font-bold text-lg font-sans leading-none mb-1">
+                        {product.mrp}
                       </span>
                     )}
                   </div>

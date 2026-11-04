@@ -113,19 +113,19 @@ export function ProductDetailClient({ product }: Props) {
 
             {/* Price Display */}
             <div className="flex items-end gap-3 mb-6">
-              {product.sellingPrice && (
+              {/* {product.sellingPrice && (
                 <span className="text-[28px] font-bold text-primary-dark font-sans leading-none">
                   {product.sellingPrice}
                 </span>
-              )}
+              )} */}
               {product.mrp && product.mrp !== product.sellingPrice && (
                 <>
-                  <span className="text-[16px] text-text-muted line-through font-medium leading-relaxed">
+                  <span className="text-[28px] font-bold text-primary-dark font-sans leading-none">
                     MRP: {product.mrp}
                   </span>
-                  <span className="text-[14px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded border border-green-200">
+                  {/* <span className="text-[14px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded border border-green-200">
                     20% OFF
-                  </span>
+                  </span> */}
                 </>
               )}
             </div>
